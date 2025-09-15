@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invitation — Computer Coding Week</title>
+  <style>
+    :root{
+      --card-width: 900px;
+      
+      --border: 4px solid #101010;
+      --corner-radius: 10px;
+      --padding: 28px;
+      --accent1: #ff7043;
+      --accent2: #ffcc80;
+      --accent3: #b39ddb;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Card */
+    .invite-card{
+      width: min(var(--card-width), 96vw);
+      height: auto;
+      background: linear-gradient(180deg, rgba(233, 177, 129, 0.98), rgba(188, 245, 109, 0.98));
+       border-radius:16px;
+      box-shadow:0 8px 30px rgba(211, 196, 196, 0.08);
+      padding:28px 32px;
+      position: relative;
+      overflow: hidden;
+      border: var(--border);
+    }
+
+     .card{
+      width:100%; max-width:900px;
+      background:var(--card-bg);
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+      padding:28px 32px;
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+    /* decorative gradients in corners */
+    .gradient-left, .gradient-right{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:180px;
+      pointer-events:none;
+      z-index:0;
+    }
+    .gradient-left{
+      left:0;
+      background: linear-gradient(135deg, rgba(49, 28, 90, 0.15) 0%, rgba(255,204,128,0.12) 40%, rgba(255,112,67,0.12) 100%);
+    }
+    .gradient-right{
+      right:0;
+      background: linear-gradient(225deg, rgba(255,112,67,0.18) 0%, rgba(255,204,128,0.12) 50%, rgba(179,157,219,0.10) 100%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 20px;
+      padding: var(--padding);
+      min-height: var(--card-height);
+      align-items: start;
+    }
+
+    /* vertical rotated school name on right */
+    .school-name-vertical{
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:2px;
+      color:#222;
+      align-self: start;
+    }
+
+    /* main body */
+    .left {
+      padding-right: 60px;
+    }
+
+ 
+    .header-row {
+    display: flex
+;
+    gap: 100px;
+    margin-bottom: 8px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+    .logo {
+      width:88px;
+      height:88px;
+      border-radius:8px;
+      overflow:hidden;
+      flex: 0 0 88px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:2px solid #e6e6e6;
+    }
+    .logo img{ width:100%; height:100%; object-fit:contain; display:block; }
+
+    .school-title {
+      font-size:20px;
+      font-weight:700;
+      margin:0;
+      color:#1b1b1b;
+    }
+
+    .subtle {
+      color:#333;
+      font-size:13px;
+      margin-top:6px;
+      line-height:1.25;
+    }
+
+    .invite-title {
+      font-size:18px;
+      font-weight:800;
+      margin: 18px 0 6px 0;
+      letter-spacing:0.6px;
+    }
+
+    .body-text {
+      font-size:15px;
+      color:#222;
+      line-height:1.5;
+      margin-bottom: 18px;
+    }
+
+    /* right area content beneath vertical text */
+    .right-column {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      justify-content:flex-start;
+    }
+
+    .date-venue {
+      background: rgba(0,0,0,0.02);
+      padding: 2px;
+      border-radius:20px;
+      width:100%;
+      text-align:left;
+      font-size:14px;
+    }
+
+    .signature {
+      margin-top: 22px;
+      font-size:14px;
+      color:#111;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size:13px;
+      color:#444;
+    }
+
+    /* responsive */
+    @media (max-width:760px){
+      .content{ grid-template-columns: 1fr; padding:18px; min-height: 600px;}
+      .school-name-vertical{ display:none; }
+      .right-column{ flex-direction:row; gap:10px; justify-content:space-between; }
+      .logo{ width:72px; height:72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="invite-card">
+    <div class="gradient-left" aria-hidden="true"></div>
+    <div class="gradient-right" aria-hidden="true"></div>
+
+    <div class="content">
+      <div class="left">
+        <div class="header-row">
+        <div style="width:110px; height:110px; border-radius:50%; overflow:hidden; border:3px solid #0b5; display:flex; align-items:center; justify-content:center; background:#FFF;">
+            <!-- If you have a circular seal file, replace seal.png -->
+            <img src="logoheader.png" alt="Seal" style="width:90%; height:90%; object-fit:contain;" onerror="this.style.opacity=0.6;">
+          </div>
+
+          <div>
+            <p class="school-title" style="text-align:center;">PAKISTAN INTERNATIONAL SCHOOL RIYADH</p>
+              <div style="margin-top:10px; font-size:20px; color:#000000; text-align:center;">
+                Respected Principal<br>
+                <strong>Raja Muhammad Irfan</strong>
+                <p class="subtle" style="margin-top:10px; font-size:16px; color:#000000; text-align:center;">We warmly invite you to join us for</p>
+              </div>
+               <div class="invite-title" style="text-align:center;">COMPUTER CODING WEEK</div>
+
+        <div class="body-text" style="text-align:center;">
+          Organized by <strong>the Middle School Girls Section (MGS)</strong>.<br><br>
+          <div >
+              
+                
+
+          </div>
+          
+         
+ 
+        </div>
+
+       
+        
+       <!-- last bottom image and content -->
+        <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
+          
+     
+          
+
+          <div style="margin-top:14px; font-size:13px; color:#444; text-align:center;">
+            Organized by: Mrs. Hira Junaid<br>
+            Middle School Girls Section (MGS)
+          </div>
+        </div>
+
+      </div>
+          
+        </div>
+
+     
+
+     
+
+       
+      </div>
+      
+      
+  <div class="left">
+        
+
+        <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
+          <!-- circular seal -->
+          <div style="width:110px; height:110px; border-radius:50%; overflow:hidden; border:3px solid #0b5; display:flex; align-items:center; justify-content:center; background:#FFF;">
+            <!-- If you have a circular seal file, replace seal.png -->
+             
+            <img src="images (1).jpg" alt="Seal" style="width:90%;border-radius:50%; height:90%; object-fit:contain;" onerror="this.style.opacity=0.6;">
+          </div>
+
+         
+
+         
+        </div>
+
+      </div>
+      
+      
+    </div>
+  </div>
+</body>
+</html>
